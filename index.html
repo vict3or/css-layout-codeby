@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>teste-layout</title>
+</head>
+
+<body>
+  <header class="header">
+    <img src="imagens/logo.png" alt="Logo Escalator" />
+
+    <h1>
+      we have ideas to <br>
+      growth your business
+    </h1>
+
+    <button>See Now</button>
+  </header>
+
+  <main class="container">
+    <div class="category-header">
+      <h2>categories</h2>
+      <p>discover new possibilities to help you today</p>
+    </div>
+
+    <div class="categories">
+      <div class="category category-small">
+        <div class="category-wrapper">
+          <h3>nature</h3>
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
+      </div>
+
+      <div class="category category-medium">
+        <div class="category-wrapper">
+          <h3>daily</h3>
+          <p>Praesent tincidunt consectetur diam</p>
+        </div>
+      </div>
+
+      <div class="category category-large">
+        <div class="category-wrapper">
+          <h3>together</h3>
+          <p>Vivamus non arcu tincidunt, tempus nunc eu, scelerisque ipsum</p>
+        </div>
+      </div>
+
+      <div class="category category-medium category-left">
+        <div class="category-wrapper">
+          <h3>analysis</h3>
+          <p>Duis sollicitudin mauris vitae venenatis aliquet</p>
+        </div>
+      </div>
+
+      <div class="category category-small">
+        <div class="category-wrapper">
+          <h3>pictures</h3>
+          <p>Quisque eu nisl purus</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="footer">
+    <div class="container">
+      <div class="graphics-header">
+        <h2>growth plans</h2>
+        <p>take your business to the next level</p>
+      </div>
+
+      <div class="graphics">
+        <div class="graphic">
+          <div class="graphic-head">
+            <h4>$ 100</h4>
+            <h5>100 + hours</h5>
+          </div>
+
+          <div class="graphic-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="graphic">
+          <div class="graphic-head">
+            <h4>$ 150</h4>
+            <h5>180 + hours</h5>
+          </div>
+
+          <div class="graphic-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="graphic">
+          <div class="graphic-head">
+            <h4>$ 200</h4>
+            <h5>260 + hours</h5>
+          </div>
+
+          <div class="graphic-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="graphic">
+          <div class="graphic-head">
+            <h4>$ 250</h4>
+            <h5>380 + hours</h5>
+          </div>
+
+          <div class="graphic-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="graphic">
+          <div class="graphic-head">
+            <h4>$ 300</h4>
+            <h5>420 + hours</h5>
+          </div>
+
+          <div class="graphic-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="graphic">
+          <div class="graphic-head">
+            <h4>$ 350</h4>
+            <h5>520 + hours</h5>
+          </div>
+
+          <div class="graphic-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var graphicsEl = document.querySelector('.graphics')
+    var graphicList = document.querySelectorAll('.graphic')
+
+    function elementInViewport(el) {
+      var top = el.offsetTop;
+      var left = el.offsetLeft;
+      var width = el.offsetWidth;
+      var height = el.offsetHeight;
+
+      while (el.offsetParent) {
+        el = el.offsetParent;
+        top += el.offsetTop;
+        left += el.offsetLeft;
+      }
+
+      return (
+        top < (window.pageYOffset + window.innerHeight) &&
+        left < (window.pageXOffset + window.innerWidth) &&
+        (top + height) > window.pageYOffset &&
+        (left + width) > window.pageXOffset
+      );
+    }
+
+    var hasShowedAnimationAlready = false
+
+    document.addEventListener("scroll", function () {
+      if (!hasShowedAnimationAlready) {
+        if (elementInViewport(graphicsEl)) {
+          Array.from(graphicList).forEach(function (el) {
+            el.classList.add("animate");
+          })
+          hasShowedAnimationAlready = true
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
